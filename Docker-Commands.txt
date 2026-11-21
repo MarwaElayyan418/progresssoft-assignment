@@ -1,0 +1,26 @@
+# Check Docker installation
+docker --version
+
+# Build Tomcat image
+docker build -t ps-tomcat:1.0 .
+
+# Run Tomcat container
+docker run -d --name ps-tomcat -p 8080:8080 ps-tomcat:1.0
+
+# Check running containers
+docker ps
+
+# View container logs
+docker logs ps-tomcat
+
+# Test the application
+curl http://localhost:8080/
+
+# Run all services using Docker Compose
+docker compose up -d --build
+
+# Check services
+docker compose ps
+
+# Stop and remove services
+docker compose down
